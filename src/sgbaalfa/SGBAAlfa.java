@@ -7,7 +7,7 @@ package sgbaalfa;
 
 /**
  *
- * @author joffr
+ * @author joffrey
  */
 public class SGBAAlfa {
 
