@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Aluno
+ * @author joffr
  */
 public class Atividade extends javax.swing.JFrame {
 
