@@ -76,7 +76,7 @@ public abstract class Usuario {
     public void criarOcorrencia(){
         
     }
-    public void consultarOcorrencia(){
+    public void consultarOcorrencias(){
         
     }
 }
