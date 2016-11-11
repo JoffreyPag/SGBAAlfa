@@ -6,6 +6,7 @@
 package sgbaalfa;
 
 import java.util.ArrayList;
+import view.*;
 
 /**
  *
@@ -16,6 +17,8 @@ public class SGBAAlfa {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here  
+        // TODO code application logic here 
+        TelaPrincipal tp = new TelaPrincipal();
+        tp.setVisible(true);
     }   
 }
