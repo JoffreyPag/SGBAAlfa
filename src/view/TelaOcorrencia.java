@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 package view;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import sgbaalfa.Ocorrencia;
 /**
  *
  * @author Aluno
  */
-public class Ocorrencia extends javax.swing.JFrame {
+public class TelaOcorrencia extends javax.swing.JFrame {
 
     /**
      * Creates new form Ocorrencia
      */
-    public Ocorrencia() {
+    public TelaOcorrencia() {
         initComponents();
     }
 
@@ -129,9 +132,31 @@ public class Ocorrencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
-        //setVisible(false);    AMBOS FAZEM
-       //this.dispose();        A MESMA COISA?
+       Date data = new Date();
+       SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+       formatador.format( data );
+       
+       String desc = campoDescricao.getText();
+       String autor = (String) comboBoxAutores.getSelectedItem();
+       int idautor = comboBoxAutores.getSelectedIndex();
+       String setor = (String) comboBoxSetores.getSelectedItem();
+       
+       int n = JOptionPane.showConfirmDialog(null, "Autor: "+autor+" id: "+idautor+
+                                            "\nSetor: "+setor+"\tData: "+data+"\nDescrição:\n"+desc,
+                                             "Confirmar mensagem", JOptionPane.YES_NO_OPTION);
+       
+       if(n == JOptionPane.YES_OPTION){
+           System.out.println("Autor: "+autor+" id: "+idautor+"\nSetor: "+setor+"\tData: "+data+"\nDescrição:\n"+desc);
+           Ocorrencia msg = new Ocorrencia(desc, autor, data, idautor, setor);
+           
+           //IMPLEMENTAR TRATAMENTO DE ENVIO AO BANCO
+           
+           System.out.println("enviando para o BD");  
+        }else{
+           System.out.println("cancelado");
+       }
        System.out.println("fechou");
+       this.dispose();
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     /**
@@ -151,20 +176,21 @@ public class Ocorrencia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ocorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOcorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ocorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOcorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ocorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOcorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ocorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaOcorrencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ocorrencia().setVisible(true);
+                new TelaOcorrencia().setVisible(true);
             }
         });
     }

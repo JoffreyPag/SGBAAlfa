@@ -7,7 +7,7 @@ package view;
 import sgbaalfa.FuncTableModel;
 /**
  *
- * @author Aluno
+ * @author Washington
  */
 public class Presenca extends javax.swing.JFrame {
 

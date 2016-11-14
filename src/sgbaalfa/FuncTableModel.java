@@ -27,7 +27,9 @@ public class FuncTableModel extends AbstractTableModel {
 
     /* Cria um BolsistaTableModel vazio. */
     public FuncTableModel() {
-        linhas = new ArrayList<Bolsista>(new BancoLocal().getBolsistas());        
+        ArrayList<Bolsista> listaBolsista = new BancoLocal().getBolsistas();
+        linhas = new ArrayList<Bolsista>(listaBolsista);        
+        //linhas = new ArrayList<Bolsista>(new BancoLocal().getBolsistas());        
         //linhas = new ArrayList<Bolsista>();
     }
 

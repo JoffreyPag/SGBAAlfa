@@ -102,8 +102,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     //ACTION DOS BOTOES ONDE CHAMARAO OS OBJETOS DAS OUTRAS TELAS
     */
     private void botaoOcorrenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOcorrenciaActionPerformed
-        //Ocorrencia oc = new Ocorrencia();
-        new Ocorrencia().setVisible(true);
+        //Ocorrencia oc = new TelaOcorrencia();
+        new TelaOcorrencia().setVisible(true);
         
         //oc.setVisible(true);
     }//GEN-LAST:event_botaoOcorrenciaActionPerformed
