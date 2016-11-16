@@ -109,12 +109,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoOcorrenciaActionPerformed
 
     private void botaoPresencaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPresencaActionPerformed
-        //Presenca pr = new Presenca();
-        new Presenca().setVisible(true);
+        //Presenca pr = new TelaPresenca();
+        new TelaPresenca().setVisible(true);
     }//GEN-LAST:event_botaoPresencaActionPerformed
 
     private void botaoAtividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtividadesActionPerformed
-       new Atividade().setVisible(true);
+       new TelaAtividade().setVisible(true);
     }//GEN-LAST:event_botaoAtividadesActionPerformed
 
     public static void main(String args[]) {
