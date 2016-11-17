@@ -18,8 +18,13 @@ public class SGBAAlfa {
      */
     public static void main(String[] args) {
         // TODO code application logic here 
-        TelaPrincipal tp = new TelaPrincipal();
-        tp.setResizable(false);
-        tp.setVisible(true);
+        //TelaPrincipal tp = new TelaPrincipal();
+        //tp.setResizable(false);
+        //tp.setVisible(true);
+        TelaAdmin adm = new TelaAdmin();
+        adm.setResizable(false);
+        adm.setVisible(true);
+        
+        
     }   
 }
