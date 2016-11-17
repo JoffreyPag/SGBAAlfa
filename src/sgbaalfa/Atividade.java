@@ -9,12 +9,13 @@ import java.util.ArrayList;
 public class Atividade {
     ArrayList<Bolsista> usuarios;
     String descricao, titulo;
-    
-    public void Atividade(String titulo, String descricao){
-        this.titulo = titulo;
-        this.descricao = descricao;
-    }
 
+    public Atividade(String descricao, String titulo) {
+        this.descricao = descricao;
+        this.titulo = titulo;
+    }
+    
+    
     public ArrayList<Bolsista> getUsuarios() {
         return usuarios;
     }

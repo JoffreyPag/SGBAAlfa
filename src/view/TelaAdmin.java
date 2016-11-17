@@ -29,10 +29,11 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         botaoCad = new javax.swing.JButton();
         labelTitulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botaoListaAtv = new javax.swing.JButton();
+        botaoCriarAtv = new javax.swing.JButton();
+        botaoSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         botaoCad.setText("Cadastrar Funcionario");
         botaoCad.addActionListener(new java.awt.event.ActionListener() {
@@ -43,14 +44,26 @@ public class TelaAdmin extends javax.swing.JFrame {
 
         labelTitulo.setText("Administrador");
 
-        jButton1.setText("Listar Atividades");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoListaAtv.setText("Listar Atividades");
+        botaoListaAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoListaAtvActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Criar Atividade");
+        botaoCriarAtv.setText("Criar Atividade");
+        botaoCriarAtv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCriarAtvActionPerformed(evt);
+            }
+        });
+
+        botaoSair.setText("Sair modo admin");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,15 +72,21 @@ public class TelaAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(labelTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(botaoCad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(146, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(labelTitulo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(botaoCad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botaoListaAtv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botaoCriarAtv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 136, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botaoSair)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,10 +96,12 @@ public class TelaAdmin extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(botaoCad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(botaoListaAtv)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addComponent(botaoCriarAtv)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(botaoSair)
+                .addContainerGap())
         );
 
         pack();
@@ -88,13 +109,25 @@ public class TelaAdmin extends javax.swing.JFrame {
 
     private void botaoCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadActionPerformed
         TelaCadastrarFunc tcrud = new TelaCadastrarFunc();
+        tcrud.setResizable(false);
         tcrud.setVisible(true);
     }//GEN-LAST:event_botaoCadActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botaoListaAtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListaAtvActionPerformed
         TelaAtividade ta = new TelaAtividade();
+        ta.setResizable(false);
         ta.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botaoListaAtvActionPerformed
+
+    private void botaoCriarAtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarAtvActionPerformed
+        TelaCriarAtividade tca = new TelaCriarAtividade();
+        tca.setResizable(false);
+        tca.setVisible(true);
+    }//GEN-LAST:event_botaoCriarAtvActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_botaoSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,8 +166,9 @@ public class TelaAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCad;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botaoCriarAtv;
+    private javax.swing.JButton botaoListaAtv;
+    private javax.swing.JButton botaoSair;
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
 }

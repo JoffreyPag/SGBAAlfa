@@ -17,14 +17,9 @@ public class SGBAAlfa {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here 
-        //TelaPrincipal tp = new TelaPrincipal();
-        //tp.setResizable(false);
-        //tp.setVisible(true);
-        TelaAdmin adm = new TelaAdmin();
-        adm.setResizable(false);
-        adm.setVisible(true);
-        
+        TelaControle tc = new TelaControle();
+        tc.setResizable(false);
+        tc.setVisible(true);
         
     }   
 }
