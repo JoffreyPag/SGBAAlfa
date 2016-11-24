@@ -12,8 +12,8 @@ package sgbaalfa;
 public class Bolsista extends Usuario{
     private String matricula;
 
-    public Bolsista(String nome, String cpf, String email, String senha, char tipoUser, String matricula) {
-        super(nome, cpf, email, senha, tipoUser);
+    public Bolsista(String nome, String cpf, String email, String senha, String telefone, char tipoUser, String matricula) {
+        super(nome, cpf, email, senha, telefone, tipoUser);
         this.matricula = matricula;
     }  
 

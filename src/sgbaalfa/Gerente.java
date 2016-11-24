@@ -11,8 +11,8 @@ package sgbaalfa;
  */
 public class Gerente extends Usuario{
     
-    public Gerente(String nome, String cpf, String email, String senha, char tipoUser) {
-        super(nome, cpf, email, senha, tipoUser);
+    public Gerente(String nome, String cpf, String email, String senha, String telefone, char tipoUser) {
+        super(nome, cpf, email, senha,telefone ,tipoUser);
     }
     
     public void criarAtividade(){

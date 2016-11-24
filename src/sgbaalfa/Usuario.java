@@ -11,14 +11,15 @@ package sgbaalfa;
  */
 public abstract class Usuario {
     private int id;
-    private String nome, cpf, email, senha;
+    private String nome, cpf, email, senha, telefone;
     private char tipoUser;
 
-    public Usuario(String nome, String cpf, String email, String senha, char tipoUser) {
+    public Usuario(String nome, String cpf, String email, String senha, String telefone, char tipoUser) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
+        this.telefone = telefone;
         this.tipoUser = tipoUser;
     }
 
@@ -62,6 +63,14 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+ 
     public char getTipoUser() {
         return tipoUser;
     }

@@ -6,6 +6,7 @@
 package sgbaalfa;
 
 import java.util.ArrayList;
+import utilitarios.conexao;
 import view.*;
 
 /**
@@ -21,5 +22,7 @@ public class SGBAAlfa {
         tc.setResizable(false);
         tc.setVisible(true);
         
+        //conexao con = new conexao();
+        //con.conectar();
     }   
 }

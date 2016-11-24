@@ -5,6 +5,7 @@
  */
 package view;
 
+import DAO.UsuarioDAO;
 import javax.swing.JOptionPane;
 import sgbaalfa.Bolsista;
 
@@ -40,7 +41,9 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
         botaoconfirm = new javax.swing.JButton();
         botaoCancel = new javax.swing.JButton();
         labelId = new javax.swing.JLabel();
-        campoId = new javax.swing.JTextField();
+        campoTel = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        campoMatricula = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -72,40 +75,56 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
             }
         });
 
-        labelId.setText("ID:");
+        labelId.setText("Telefone:");
+
+        jLabel1.setText("Matricula:");
+
+        campoMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoMatriculaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(labelTirulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNome)
-                            .addComponent(labelCpf))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoCpf)
-                            .addComponent(campoNome)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelEmail)
-                            .addComponent(labelId))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(botaoconfirm)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                                .addComponent(botaoCancel))
-                            .addComponent(campoEmail)
-                            .addComponent(campoId))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                                .addGap(137, 137, 137)
+                                .addComponent(labelTirulo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelNome)
+                                    .addComponent(labelCpf))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(campoCpf)
+                                    .addComponent(campoNome)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelEmail)
+                                    .addComponent(labelId))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(botaoconfirm)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                                        .addComponent(botaoCancel))
+                                    .addComponent(campoEmail)
+                                    .addComponent(campoTel))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campoMatricula)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,12 +146,19 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelId)
-                    .addComponent(campoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoconfirm)
-                    .addComponent(botaoCancel))
-                .addGap(33, 33, 33))
+                    .addComponent(campoTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botaoconfirm)
+                            .addComponent(botaoCancel))
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(campoMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -147,15 +173,17 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
         String email = campoEmail.getText();
         String cpf = campoCpf.getText();
         String senha = "1234"; //temporario
-        int id = Integer.parseInt(campoId.getText());
+        String telefone = campoTel.getText();
+        String matricula = campoMatricula.getText();
+        int id = Integer.parseInt(campoTel.getText());
         int resp = JOptionPane.showConfirmDialog(null, "Cadastrar: "+nome+" CPF: "+cpf+
-                                                "\nE-mail: "+email+"\nID: "+id, "Confirmar", JOptionPane.YES_NO_OPTION);
+                                                "\nE-mail: "+email+"\nTelefone: "+telefone, "Confirmar", JOptionPane.YES_NO_OPTION);
         if(resp == JOptionPane.YES_OPTION){
             //String nome, String cpf, String email, String senha, char tipoUser, String matricula
-            Bolsista bol = new Bolsista(nome, cpf, email, senha , 'b', email);
-        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        //enviar para o banco
-        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    
+            Bolsista bol = new Bolsista(nome, cpf, email, senha , telefone,'b', matricula);
+            //enviar para o banco    
+            UsuarioDAO ud = new UsuarioDAO();
+            ud.inserirBolsista(bol);
             dispose();
         }
     }//GEN-LAST:event_botaoconfirmActionPerformed
@@ -163,6 +191,10 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
     private void botaoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelActionPerformed
         dispose();
     }//GEN-LAST:event_botaoCancelActionPerformed
+
+    private void campoMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoMatriculaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,8 +236,10 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
     private javax.swing.JButton botaoconfirm;
     private javax.swing.JTextField campoCpf;
     private javax.swing.JTextField campoEmail;
-    private javax.swing.JTextField campoId;
+    private javax.swing.JTextField campoMatricula;
     private javax.swing.JTextField campoNome;
+    private javax.swing.JTextField campoTel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelCpf;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelId;
