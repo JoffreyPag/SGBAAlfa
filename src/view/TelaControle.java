@@ -16,16 +16,22 @@ public class TelaControle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campo1 = new javax.swing.JTextField();
-        campo2 = new javax.swing.JTextField();
-        botaoEntrar = new javax.swing.JButton();
+        estagiario = new javax.swing.JButton();
+        gerente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        botaoEntrar.setText("Entrar");
-        botaoEntrar.addActionListener(new java.awt.event.ActionListener() {
+        estagiario.setText("Modo Estagiario");
+        estagiario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoEntrarActionPerformed(evt);
+                estagiarioActionPerformed(evt);
+            }
+        });
+
+        gerente.setText("Modo Gerente");
+        gerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenteActionPerformed(evt);
             }
         });
 
@@ -34,49 +40,36 @@ public class TelaControle extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(campo1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(88, 88, 88)
-                            .addComponent(botaoEntrar))
-                        .addComponent(campo2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(estagiario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(gerente)
+                .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(campo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(campo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(botaoEntrar)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(estagiario, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gerente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
-        String nome = campo1.getText();
-        String senha = campo2.getText();
-        //System.out.println(nome+"\n"+senha);
-        if(nome.equals("aluno") && senha.equals("aluno")){
-            TelaBolsista tp = new TelaBolsista();
-            tp.setResizable(false);
-            tp.setVisible(true);
-        }
-        else if(nome.equals("admin") && senha.equals("admin")){
-            TelaAdmin ta = new TelaAdmin();
-            ta.setResizable(false);
-            ta.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Nome e/ou senha inválidas!");
-        }
-        
-    }//GEN-LAST:event_botaoEntrarActionPerformed
+    private void estagiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estagiarioActionPerformed
+        TelaBolsista tp = new TelaBolsista();
+        tp.setResizable(false);
+        tp.setVisible(true);
+    }//GEN-LAST:event_estagiarioActionPerformed
+
+    private void gerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenteActionPerformed
+        TelaAdmin ta = new TelaAdmin();
+        ta.setResizable(false);
+        ta.setVisible(true);
+    }//GEN-LAST:event_gerenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,8 +107,7 @@ public class TelaControle extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoEntrar;
-    private javax.swing.JTextField campo1;
-    private javax.swing.JTextField campo2;
+    private javax.swing.JButton estagiario;
+    private javax.swing.JButton gerente;
     // End of variables declaration//GEN-END:variables
 }

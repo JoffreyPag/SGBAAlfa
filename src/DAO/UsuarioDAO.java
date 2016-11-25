@@ -2,6 +2,9 @@
 package DAO;
 //import sgbaalfa.Usuario;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import utilitarios.conexao;
 import sgbaalfa.Bolsista;
@@ -13,6 +16,7 @@ import sgbaalfa.Gerente;
 public class UsuarioDAO {
     
     private final String INSERT = "INSERT INTO USUARIO (nome, cpf, email, matricula, telefone, senha, tipo) VALUES (?,?,?,?,?,?,?)";
+    private final String LIST = "SELECT * FROM USUARIO WHERE tipo = '(?)'";
     private conexao con = new conexao();
     
     public void inserirBolsista(Bolsista u){
@@ -41,5 +45,94 @@ public class UsuarioDAO {
         
     }
 
+    public void inserirGerente(Gerente u){
+        try{
+            con.conectar();
+            PreparedStatement preparaInstrucao;
+            preparaInstrucao = con.getConexao().prepareStatement(INSERT);
+            
+            preparaInstrucao.setString(1, u.getNome());
+            preparaInstrucao.setString(2, u.getCpf());
+            preparaInstrucao.setString(3, u.getEmail());
+            preparaInstrucao.setString(4, null);
+            preparaInstrucao.setString(5, u.getTelefone());
+            preparaInstrucao.setString(6, u.getSenha());
+            preparaInstrucao.setString(7, "g");
+            preparaInstrucao.execute();
+            JOptionPane.showMessageDialog(null, "Gerente cadastrado com sucesso");
+
+            // DESCONECTA
+            con.desconecta();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao inserir cliente no banco de dados " + e.getMessage());
+        }
+        
+        
+    }
+
+    public ArrayList<Bolsista> listarBolsista(){
+        ArrayList<Bolsista> listaBolsista = new ArrayList<>(); //cria uma lista de objetos
+
+		try {
+			// CONECTA
+			con.conectar();
+                        
+                        PreparedStatement preparaInstrucao;
+                        preparaInstrucao = con.getConexao().prepareStatement(LIST);
+                        preparaInstrucao.setString(1, "b");
+                        preparaInstrucao.execute();
+                        
+			ResultSet rs = preparaInstrucao.executeQuery(); // EXECUTA A INSTRUCAO
+			
+			while (rs.next()) { //enquanto houver registro
+				Bolsista b = new Bolsista(rs.getString("nome"), rs.getString("cpf"),
+                                                          rs.getString("email"), rs.getString("senha"), 
+                                                          rs.getString("telefone"), 'g', 
+                                                          rs.getString("matricula"));
+                                
+				listaBolsista.add(b); //adiciona o objeto a lista
+                                
+			}
+			// DESCONECTA
+			con.desconecta();
+                        
+                        /*for(int i = 0; i<lista.size(); i++){
+                            System.out.println(lista.get(i).getNome());
+                        }*/
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+                return listaBolsista;
+    }
     
+    public void listarGerente(){
+        ArrayList<Gerente> lista = new ArrayList<>(); //cria uma lista de objetos Gerente
+
+		try {
+			// CONECTA
+			con.conectar();
+			PreparedStatement preparaInstrucao;
+                        preparaInstrucao = con.getConexao().prepareStatement(LIST);
+                        preparaInstrucao.setString(1, "g");
+                        preparaInstrucao.execute();
+                        
+			ResultSet rs = preparaInstrucao.executeQuery(); // EXECUTA A INSTRUCAO
+			
+			while (rs.next()) { //enquanto houver registro
+				Gerente g = new Gerente(rs.getString("nome"), rs.getString("cpf"), 
+                                                        rs.getString("email"), rs.getString("senha"), 
+                                                        rs.getString("telefone"), 'g');
+				lista.add(g); //adiciona o objeto a lista
+			}
+			// DESCONECTA
+			con.desconecta();
+                        
+                        /*for(int i = 0; i<lista.size(); i++){
+                            System.out.println(lista.get(i).getNome());
+                        }*/
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
 }

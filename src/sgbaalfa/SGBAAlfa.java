@@ -5,6 +5,7 @@
  */
 package sgbaalfa;
 
+import DAO.UsuarioDAO;
 import java.util.ArrayList;
 import utilitarios.conexao;
 import view.*;

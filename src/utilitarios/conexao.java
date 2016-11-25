@@ -35,7 +35,7 @@ public class conexao {
         System.setProperty("jdbc.Drivers", driver);
         try {
             conn = DriverManager.getConnection(caminho, usuario, senha);
-            JOptionPane.showMessageDialog(null, "Conectado!");
+            //JOptionPane.showMessageDialog(null, "Conectado!");
             
             
         } catch (SQLException ex) {
@@ -47,7 +47,7 @@ public class conexao {
     public void desconecta(){
         try {
             conn.close();
-            JOptionPane.showMessageDialog(null, "Desconectado");
+            //JOptionPane.showMessageDialog(null, "Desconectado");
         } catch (SQLException ex) {
             Logger.getLogger(conexao.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Erro:"+ex.getMessage());
