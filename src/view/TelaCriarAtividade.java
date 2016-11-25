@@ -5,6 +5,7 @@
  */
 package view;
 
+import DAO.AtividadeDAO;
 import javax.swing.JOptionPane;
 import sgbaalfa.Atividade;
 
@@ -140,6 +141,7 @@ public class TelaCriarAtividade extends javax.swing.JFrame {
         if(resp == JOptionPane.YES_OPTION){
             Atividade at = new Atividade(desc, titulo);
             //ENVIAR BANCO
+            new AtividadeDAO().registarAtividade(at);
             dispose();
         }
     }//GEN-LAST:event_botaoEnviarActionPerformed

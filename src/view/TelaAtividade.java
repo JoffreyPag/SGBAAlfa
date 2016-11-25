@@ -5,6 +5,8 @@
  */
 package view;
 
+import DAO.MontaTabelaAtividade;
+
 /**
  *
  * @author joffr
@@ -32,14 +34,7 @@ public class TelaAtividade extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(new MontaTabelaAtividade());
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

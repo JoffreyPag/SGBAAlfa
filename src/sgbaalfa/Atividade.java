@@ -10,9 +10,9 @@ public class Atividade {
     ArrayList<Bolsista> usuarios;
     String descricao, titulo;
 
-    public Atividade(String descricao, String titulo) {
-        this.descricao = descricao;
+    public Atividade(String titulo, String descricao) {
         this.titulo = titulo;
+        this.descricao = descricao;
     }
     
     
