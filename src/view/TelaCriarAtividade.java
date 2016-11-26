@@ -139,7 +139,7 @@ public class TelaCriarAtividade extends javax.swing.JFrame {
         int resp = JOptionPane.showConfirmDialog(null, titulo+"\n"+desc,
                                                 "Confirmar", JOptionPane.YES_NO_OPTION);
         if(resp == JOptionPane.YES_OPTION){
-            Atividade at = new Atividade(desc, titulo);
+            Atividade at = new Atividade(titulo, desc);
             //ENVIAR BANCO
             new AtividadeDAO().registarAtividade(at);
             dispose();
