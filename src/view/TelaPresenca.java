@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import DAO.MontaTabelaPresenca;
 import sgbaalfa.FuncTableModel;
 /**
  *
@@ -32,7 +33,7 @@ public class TelaPresenca extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new FuncTableModel());
+        jTable1.setModel(new MontaTabelaPresenca());
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
