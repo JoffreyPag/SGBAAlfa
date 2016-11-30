@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import utilitarios.conexao;
 
@@ -9,16 +10,27 @@ import utilitarios.conexao;
  * @author joffr
  */
 public class HistoricoPresencaDAO {
-    private final String INSERT = "INSERT INTO HISTORICOFUNCIONARIO(dataEntrada, horaEntrada, id_Bolsista) VALUES(CURRENT-DATE,CURRENT_TIME, ?)";
-    private final String UPDATE = "UPDATE historicofuncionario SET horaSaida = CURRENT_TIME WHERE dataEntrada = CURRENT_DATE, id_Func=?";
+    private final String BUSCA = "SELECT id FROM USUARIO WHERE matricula = ? ";
+    private final String INSERT = "INSERT INTO HISTORICOFUNCIONARIO(id_Func, dataEntrada, horaEntrada) VALUES ((SELECT id FROM usuario WHERE matricula = ? ), CURRENT_DATE, CURRENT_TIME);";
+    private final String UPDATE = "UPDATE HISTORICOFUNCIONARICO SET horaSaida = CURRENT_TIME WHERE dataEntrada = CURRENT_DATE, id_Func=?";
     private conexao con = new conexao();
     
-    public void inserirEntrada(){
+    public void inserirEntrada(String matricula){
         try{
+            con.conectar();
+
+            /*PreparedStatement preparaInstrucao;
+            preparaInstrucao = con.getConexao().prepareStatement(BUSCA);
+            preparaInstrucao.setString(1, matricula);
+            preparaInstrucao.execute();
+            ResultSet rs = preparaInstrucao.executeQuery(); // EXECUTA A INSTRUCAO
+
+            String x = rs.getString("id");
+            System.out.println(x);*/
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(INSERT);
-            
-           // preparaInstrucao.setString(1, idFunc/idBolsista);
+            preparaInstrucao.setString(1, matricula);
+            preparaInstrucao.execute();
             
            JOptionPane.showMessageDialog(null, "Presença registrada");
            con.desconecta();

@@ -29,7 +29,7 @@ public class MontaTabelaPresenca extends AbstractTableModel {
     /* Array de Strings com o nome das colunas. */
     private String[] colunas = new String[] {
         //String titulo, String descricao    
-        "nome"};
+        "nome", "matricula"};
 
 
     /* Cria um BolsistaTableModel vazio. */
@@ -132,19 +132,19 @@ public class MontaTabelaPresenca extends AbstractTableModel {
         // e retornar o campo adequado. As colunas são as mesmas
         // que foram especificadas no array "colunas".
        
-        //COMO TRABALHO COM UMA COLUNA TOQUEI O SWITCH EMBAIXO POR IF
+       /* //COMO TRABALHO COM UMA COLUNA TOQUEI O SWITCH EMBAIXO POR IF
        if(columnIndex == 0){
            return bols.getNome();
        } else{
            return null;
-       }
-        /*
+       }*/
+        
        //CASO TABALHARMOS COM MAIS DE UMA COLUNA
          switch (columnIndex) {
         case 0: // Primeira coluna é o nome.
             return bols.getNome();
-        //case 1: // segunda coluna é o cpf.
-          //  return bols.getCpf();
+        case 1: // segunda coluna é o cpf.
+            return bols.getMatricula();
         default:
             // Se o índice da coluna não for válido, lança um
             // IndexOutOfBoundsException (Exceção de índice fora dos limites).
@@ -153,7 +153,7 @@ public class MontaTabelaPresenca extends AbstractTableModel {
                     //MsgBox.INFORMATIVO("O índice informado não existe!");    
                     return null;
         
-        }*/
+        }
 
     }
 

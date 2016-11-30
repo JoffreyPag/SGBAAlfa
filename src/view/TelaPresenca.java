@@ -4,14 +4,16 @@
  * and open the template in the editor.
  */
 package view;
+import DAO.HistoricoPresencaDAO;
 import DAO.MontaTabelaPresenca;
+import javax.swing.JOptionPane;
 import sgbaalfa.FuncTableModel;
 /**
  *
  * @author Washington
  */
 public class TelaPresenca extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Presenca
      */
@@ -71,9 +73,8 @@ public class TelaPresenca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        
-        
-        
+        String matricula = tabela.getModel().getValueAt(tabela.getSelectedRow() , 1).toString();
+        new HistoricoPresencaDAO().inserirEntrada(matricula);
     }//GEN-LAST:event_confirmarActionPerformed
 
     /**
