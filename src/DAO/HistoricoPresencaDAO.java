@@ -3,7 +3,7 @@ package DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import javax.swing.SpringLayout;
+//import javax.swing.SpringLayout;
 import utilitarios.conexao;
 
 /**
@@ -13,7 +13,7 @@ import utilitarios.conexao;
 public class HistoricoPresencaDAO {
     private final String BUSCA = "SELECT * FROM historicofuncionario WHERE (dataEntrada = CURRENT_DATE AND id_Func = (SELECT id FROM usuario WHERE matricula = ?))";
     private final String INSERT = "INSERT INTO HISTORICOFUNCIONARIO(id_Func, dataEntrada, horaEntrada) VALUES ((SELECT id FROM usuario WHERE matricula = ? ), CURRENT_DATE, CURRENT_TIME);";
-    private final String UPDATE = "UPDATE historicofuncionario SET horaSaida = CURRENT_TIME WHERE dataEntrada = CURRENT_DATE AND (SELECT id FROM usuario WHERE matricula = ?)";
+    private final String UPDATE = "UPDATE historicofuncionario SET horaSaida = CURRENT_TIME WHERE dataEntrada = CURRENT_DATE AND id_Func = (SELECT id FROM usuario WHERE matricula = ?)";
     private conexao con = new conexao();
 
     public boolean verificaSeRegistrou(String matricula){
@@ -64,6 +64,7 @@ public class HistoricoPresencaDAO {
     }
     public void inserirSaida(String matricula){
         try{
+            con.conectar();
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(UPDATE);
             preparaInstrucao.setString(1, matricula);
