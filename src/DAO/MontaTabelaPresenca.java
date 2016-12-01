@@ -59,9 +59,9 @@ public class MontaTabelaPresenca extends AbstractTableModel {
             con.desconecta();
             
             //teste no console
-            for(int i = 0; i<listaBolsista.size(); i++){
+           /* for(int i = 0; i<listaBolsista.size(); i++){
                 System.out.println(listaBolsista.get(i).getNome());
-            }
+            }*/
         } catch (SQLException e) {
                 e.printStackTrace();
         }

@@ -7,7 +7,7 @@ package view;
 import DAO.HistoricoPresencaDAO;
 import DAO.MontaTabelaPresenca;
 import javax.swing.JOptionPane;
-import sgbaalfa.FuncTableModel;
+//import sgbaalfa.FuncTableModel;
 /**
  *
  * @author Washington
@@ -74,7 +74,11 @@ public class TelaPresenca extends javax.swing.JFrame {
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         String matricula = tabela.getModel().getValueAt(tabela.getSelectedRow() , 1).toString();
-        new HistoricoPresencaDAO().inserirEntrada(matricula);
+          boolean registrado = new HistoricoPresencaDAO().verificaSeRegistrou(matricula);
+          if(registrado)
+            new HistoricoPresencaDAO().inserirSaida(matricula);
+          else
+            new HistoricoPresencaDAO().inserirEntrada(matricula);
     }//GEN-LAST:event_confirmarActionPerformed
 
     /**
