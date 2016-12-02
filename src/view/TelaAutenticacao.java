@@ -6,6 +6,8 @@
 package view;
 
 import DAO.MontaTabelaPresenca;
+import DAO.UsuarioDAO;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 /**
@@ -56,6 +58,11 @@ public class TelaAutenticacao extends javax.swing.JFrame {
         jLabel1.setText("Identifique - se");
 
         Cancelar.setText("Cancelar");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,11 +106,25 @@ public class TelaAutenticacao extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void autenticarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autenticarActionPerformed
-        char[] senha = campoSenha.getPassword();
+        String senha = new String(campoSenha.getPassword());
+        String matricula = tabelaBolsistas.getModel().getValueAt(tabelaBolsistas.getSelectedRow() , 1).toString();
+        String nome = tabelaBolsistas.getModel().getValueAt(tabelaBolsistas.getSelectedRow() , 0).toString();
+        boolean udao = new UsuarioDAO().autenticaSenha(matricula, senha);
+        if(udao){
+            new TelaOcorrencia(nome, matricula).setVisible(true);
+            dispose();
+        }
+        else
+            JOptionPane.showMessageDialog(null, "senha inválida!");
     }//GEN-LAST:event_autenticarActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+       dispose();
+    }//GEN-LAST:event_CancelarActionPerformed
 
     /**
      * @param args the command line arguments

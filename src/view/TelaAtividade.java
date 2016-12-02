@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import DAO.MontaTabelaAtividade;
@@ -33,6 +28,7 @@ public class TelaAtividade extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jTable1.setModel(new MontaTabelaAtividade());
         jScrollPane1.setViewportView(jTable1);
@@ -55,6 +51,7 @@ public class TelaAtividade extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

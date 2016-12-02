@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import DAO.OcorrenciaDAO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -13,11 +14,13 @@ import sgbaalfa.Ocorrencia;
  * @author Aluno
  */
 public class TelaOcorrencia extends javax.swing.JFrame {
-
+    String nome, matricula;
     /**
      * Creates new form Ocorrencia
      */
-    public TelaOcorrencia() {
+    public TelaOcorrencia(String nome, String matricula) {
+        this.nome = nome;
+        this.matricula = matricula;
         initComponents();
     }
 
@@ -36,12 +39,13 @@ public class TelaOcorrencia extends javax.swing.JFrame {
         labelDescricao = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         campoDescricao = new javax.swing.JTextArea();
-        comboBoxAutores = new javax.swing.JComboBox<>();
         labelSetor = new javax.swing.JLabel();
         botaoEnviar = new javax.swing.JButton();
         comboBoxSetores = new javax.swing.JComboBox<>();
+        labelNomeAutor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         labelOcorrencia.setText("Ocorrencia");
 
@@ -52,8 +56,6 @@ public class TelaOcorrencia extends javax.swing.JFrame {
         campoDescricao.setColumns(20);
         campoDescricao.setRows(5);
         jScrollPane1.setViewportView(campoDescricao);
-
-        comboBoxAutores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         labelSetor.setText("Setor");
 
@@ -66,6 +68,8 @@ public class TelaOcorrencia extends javax.swing.JFrame {
 
         comboBoxSetores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        labelNomeAutor.setText(nome);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -73,20 +77,20 @@ public class TelaOcorrencia extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelOcorrencia)
-                    .addComponent(labelDescricao)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelAutor)
                         .addGap(18, 18, 18)
-                        .addComponent(comboBoxAutores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(labelNomeAutor))
+                    .addComponent(labelOcorrencia)
+                    .addComponent(labelDescricao)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelSetor)
                             .addComponent(botaoEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                            .addComponent(comboBoxSetores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(comboBoxSetores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +100,7 @@ public class TelaOcorrencia extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelAutor)
-                    .addComponent(comboBoxAutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNomeAutor))
                 .addGap(18, 18, 18)
                 .addComponent(labelDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -106,7 +110,7 @@ public class TelaOcorrencia extends javax.swing.JFrame {
                         .addComponent(labelSetor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(comboBoxSetores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                         .addComponent(botaoEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -129,6 +133,7 @@ public class TelaOcorrencia extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
@@ -137,25 +142,22 @@ public class TelaOcorrencia extends javax.swing.JFrame {
        formatador.format( data );
        
        String desc = campoDescricao.getText();
-       String autor = (String) comboBoxAutores.getSelectedItem();
-       int idautor = comboBoxAutores.getSelectedIndex();
+       String nomeAutor = labelNomeAutor.getText();
        String setor = (String) comboBoxSetores.getSelectedItem();
        
-       int n = JOptionPane.showConfirmDialog(null, "Autor: "+autor+" id: "+idautor+
+       int n = JOptionPane.showConfirmDialog(null, "Autor: "+nomeAutor+
                                             "\nSetor: "+setor+"\tData: "+data+"\nDescrição:\n"+desc,
                                              "Confirmar mensagem", JOptionPane.YES_NO_OPTION);
        
        if(n == JOptionPane.YES_OPTION){
-           System.out.println("Autor: "+autor+" id: "+idautor+"\nSetor: "+setor+"\tData: "+data+"\nDescrição:\n"+desc);
-           Ocorrencia msg = new Ocorrencia(desc, autor, data, idautor, setor);
+           Ocorrencia msg = new Ocorrencia(desc, nomeAutor, data, setor);
+           new OcorrenciaDAO().registarOcorrencia(msg, matricula);
            
-           //IMPLEMENTAR TRATAMENTO DE ENVIO AO BANCO
-           
-           System.out.println("enviando para o BD");  
+           //System.out.println("enviando para o BD");  
         }else{
-           System.out.println("cancelado");
+           //System.out.println("cancelado");
        }
-       System.out.println("fechou");
+       //System.out.println("fechou");
        this.dispose();
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
@@ -188,22 +190,22 @@ public class TelaOcorrencia extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaOcorrencia().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEnviar;
     private javax.swing.JTextArea campoDescricao;
-    private javax.swing.JComboBox<String> comboBoxAutores;
     private javax.swing.JComboBox<String> comboBoxSetores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAutor;
     private javax.swing.JLabel labelDescricao;
+    private javax.swing.JLabel labelNomeAutor;
     private javax.swing.JLabel labelOcorrencia;
     private javax.swing.JLabel labelSetor;
     // End of variables declaration//GEN-END:variables

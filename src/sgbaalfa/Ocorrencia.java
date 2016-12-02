@@ -14,14 +14,12 @@ import java.util.Date;
 public class Ocorrencia {
     String descricao, responsavel;
     Date data;
-    int idResponsavel;
     String setor;
 
-    public Ocorrencia(String descricao, String responsavel, Date data, int idResponsavel, String setor) {
+    public Ocorrencia(String descricao, String responsavel, Date data, String setor) {
         this.descricao = descricao;
         this.responsavel = responsavel;
         this.data = data;
-        this.idResponsavel = idResponsavel;
         this.setor = setor;
     }
 
@@ -55,14 +53,6 @@ public class Ocorrencia {
 
     public void setData(Date data) {
         this.data = data;
-    }
-
-    public int getIdResponsavel() {
-        return idResponsavel;
-    }
-
-    public void setIdResponsavel(int idResponsavel) {
-        this.idResponsavel = idResponsavel;
     }
     
     

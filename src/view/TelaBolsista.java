@@ -1,4 +1,9 @@
 package view;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 /**
  *
  * @author joffr
@@ -26,6 +31,7 @@ public class TelaBolsista extends javax.swing.JFrame {
         ModoAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         botaoPresenca.setText("Registrar Presenca");
         botaoPresenca.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +118,7 @@ public class TelaBolsista extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /*
@@ -119,7 +126,7 @@ public class TelaBolsista extends javax.swing.JFrame {
     */
     private void botaoOcorrenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOcorrenciaActionPerformed
         //Ocorrencia oc = new TelaOcorrencia();
-        new TelaOcorrencia().setVisible(true);
+        new TelaAutenticacao().setVisible(true);
         
         //oc.setVisible(true);
     }//GEN-LAST:event_botaoOcorrenciaActionPerformed
@@ -134,10 +141,20 @@ public class TelaBolsista extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAtividadesActionPerformed
 
     private void ModoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModoAdminActionPerformed
-        TelaGerente tg = new TelaGerente();
-        tg.setResizable(false);
-        tg.setVisible(true);
-        //dispose();
+       JLabel labelSenha = new JLabel("Digite a senha do Admin: ");//messagem exibida
+        JPasswordField jpf = new JPasswordField(); //campo senha
+        //Exibir a janela para o usuario
+        JOptionPane.showConfirmDialog(null, new Object[]{labelSenha, jpf},
+                                        "Senha:",JOptionPane.OK_CANCEL_OPTION,
+                                        JOptionPane.PLAIN_MESSAGE);
+        String senha = new String(jpf.getPassword()); //pega o que foi digitado
+
+        if(senha.equals("admin")){
+            new TelaGerente().setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "senha invalida");
+        }
     }//GEN-LAST:event_ModoAdminActionPerformed
 
     public static void main(String args[]) {

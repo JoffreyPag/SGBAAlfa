@@ -36,6 +36,7 @@ public class TelaGerente extends javax.swing.JFrame {
         botaoCriarAtv = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         labelTitulo.setText("Administrador");
 

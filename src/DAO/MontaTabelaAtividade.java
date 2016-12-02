@@ -57,9 +57,9 @@ public class MontaTabelaAtividade extends AbstractTableModel {
             con.desconecta();
             
             //teste no console
-            for(int i = 0; i<listaAtividade.size(); i++){
+           /* for(int i = 0; i<listaAtividade.size(); i++){
                 System.out.println(listaAtividade.get(i).getTitulo());
-            }
+            }*/
         } catch (SQLException e) {
                 e.printStackTrace();
         }

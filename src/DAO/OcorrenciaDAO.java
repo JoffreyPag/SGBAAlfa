@@ -10,32 +10,28 @@ import utilitarios.conexao;
  * @author joffr
  */
 public class OcorrenciaDAO {
-    private final String INSERT = "INSERT INTO ATIVIDADES (titulo, descricao) VALUES (?,?)";
-    private final String ComboAutores = "SELECT * FROM USUARIO";
-    //private final String LIST = "SELECT * FROM USUARIO WHERE tipo = '(?)'";
+    //desc, nomeAutor, data, setor
+    private final String INSERT = "INSERT INTO HISTORICOOCORRENCIA (descricaoOcorrencia, dataOcorrencia, setor, idFuncO ) VALUES (?,CURRENT_DATE, ?, (SELECT id FROM usuario WHERE matricula = ? ))";
     private conexao con = new conexao();
     
-    
-    public void preencherComboBoxAutores(){
-        
-        
-    }
-    
-    public void registarOcorrencia(Ocorrencia oc){
+    public void registarOcorrencia(Ocorrencia oc, String matricula){
         try{
             con.conectar();
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(INSERT);
             
-           // preparaInstrucao.setString(1, oc.getTitulo());
+            preparaInstrucao.setString(1, oc.getDescricao());
+            preparaInstrucao.setString(2, oc.getSetor());
+            preparaInstrucao.setString(3, matricula);
+            
             preparaInstrucao.execute();
-            JOptionPane.showMessageDialog(null, "Atividade cadastrada com sucesso");
+            JOptionPane.showMessageDialog(null, "Ocorrencia cadastrada com sucesso");
 
             // DESCONECTA
             con.desconecta();
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao enviar a atividade no banco de dados " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao enviar a ocorrencia no banco de dados " + e.getMessage());
         }
     }
 }

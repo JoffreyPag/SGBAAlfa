@@ -47,6 +47,7 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
         botaoCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         labelTirulo.setText("Cadastrar Funcionario");
 
@@ -171,6 +172,7 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed

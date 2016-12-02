@@ -38,6 +38,7 @@ public class TelaPresenca extends javax.swing.JFrame {
         confirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         tabela.setModel(new MontaTabelaPresenca());
         jScrollPane1.setViewportView(tabela);
@@ -74,6 +75,7 @@ public class TelaPresenca extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
