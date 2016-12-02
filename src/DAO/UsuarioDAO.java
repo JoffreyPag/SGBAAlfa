@@ -16,6 +16,7 @@ import sgbaalfa.Gerente;
 public class UsuarioDAO {
     
     private final String INSERT = "INSERT INTO USUARIO (nome, cpf, email, matricula, telefone, senha, tipo) VALUES (?,?,?,?,?,?,?)";
+    private final String BUSCASENHA = "SELECT senha FROM usuario WHERE matricula = ?";
     private final String LIST = "SELECT * FROM USUARIO WHERE tipo = '(?)'";
     private conexao con = new conexao();
     
@@ -134,5 +135,28 @@ public class UsuarioDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+    }
+    public boolean autenticaSenha(String matricula, String senha){
+        String senhaBD = "";
+        try{
+            con.conectar();
+            PreparedStatement preparaInstrucao;
+            preparaInstrucao = con.getConexao().prepareStatement(BUSCASENHA);
+            preparaInstrucao.setString(1, matricula);
+            preparaInstrucao.execute();
+            ResultSet rs = preparaInstrucao.executeQuery();
+
+            while(rs.next()){
+                //resposta = rs.getString("idHistFunc");
+                senhaBD = rs.getString("senha");
+            }
+            con.desconecta();
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return senha.equals(senhaBD); //se for vdd a senha ta correta
+        
     }
 }

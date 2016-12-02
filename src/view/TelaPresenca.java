@@ -6,7 +6,10 @@
 package view;
 import DAO.HistoricoPresencaDAO;
 import DAO.MontaTabelaPresenca;
+import DAO.UsuarioDAO;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 //import sgbaalfa.FuncTableModel;
 /**
  *
@@ -75,11 +78,24 @@ public class TelaPresenca extends javax.swing.JFrame {
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         String matricula = tabela.getModel().getValueAt(tabela.getSelectedRow() , 1).toString();
-          boolean registrado = new HistoricoPresencaDAO().verificaSeRegistrou(matricula);
-          if(registrado)
-            new HistoricoPresencaDAO().inserirSaida(matricula);
-          else
-            new HistoricoPresencaDAO().inserirEntrada(matricula);
+        
+        JLabel labelSenha = new JLabel("Digite a senha: ");//messagem exibida
+        JPasswordField jpf = new JPasswordField(); //campo senha
+        //Exibir a janela para o usuario
+        JOptionPane.showConfirmDialog(null, new Object[]{labelSenha, jpf}, "Senha:",JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        String senha = new String(jpf.getPassword()); //pega o que foi digitado
+        
+        boolean udao = new UsuarioDAO().autenticaSenha(matricula, senha);
+        
+        if(udao){
+            boolean registrado = new HistoricoPresencaDAO().verificaSeRegistrou(matricula);
+            if(registrado)
+              new HistoricoPresencaDAO().inserirSaida(matricula);
+            else
+              new HistoricoPresencaDAO().inserirEntrada(matricula);
+        } else{
+            JOptionPane.showMessageDialog(null, "senha incorreta!");
+        }
     }//GEN-LAST:event_confirmarActionPerformed
 
     /**

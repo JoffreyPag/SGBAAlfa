@@ -18,7 +18,9 @@ public class HistoricoPresencaDAO {
 
     public boolean verificaSeRegistrou(String matricula){
         //faz pesquisa e retorna algo 
-        String resposta = "";
+        //String resposta = "";
+        String idHist = "", horaSaida = "";
+        
         try{
             con.conectar();
             PreparedStatement preparaInstrucao;
@@ -28,29 +30,39 @@ public class HistoricoPresencaDAO {
             ResultSet rs = preparaInstrucao.executeQuery();
             
             while(rs.next()){
-                resposta = rs.getString("idHistFunc");
+                //resposta = rs.getString("idHistFunc");
+                idHist = rs.getString("idHistFunc");
+                horaSaida = rs.getString("horaSaida");
             }
-            //apenas pra mostrar no console que achou
-            //System.out.println(resposta);
             
             con.desconecta();   
+            //apenas pra mostrar no console que achou
+            //System.out.println(resposta);
+            System.out.println("idHist = "+idHist+" horaSaida = "+horaSaida);
             
         }catch(Exception e){
             e.printStackTrace();
         }
-        //se retornou algo essa pessoa deu entrada e chama saida
-            System.out.println(resposta.isEmpty()? "não deu entrada -> registra entrada" : "deu entrada -> registra saida");
-            //se nao retornou chama entrada
-        if(resposta.isEmpty())
+           // System.out.println(resposta.isEmpty()? "não deu entrada -> registra entrada" : "deu entrada -> registra saida");
+           //true = saida, false = entrada
+            if(!idHist.isEmpty()){ //se existir registro
+                if(horaSaida == null) //se não houver hora de saida nesse registro
+                    return true;
+                else    //se houver
+                    return false;
+            } else{ //se nao existir registro
+                return false;
+            }
+            
+        /* if(resposta.isEmpty())
             return false;
         else
-            return true;
+            return true; */
     }
     
     public void inserirEntrada(String matricula){
         try{
             con.conectar();
-
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(INSERT);
             preparaInstrucao.setString(1, matricula);
@@ -77,6 +89,5 @@ public class HistoricoPresencaDAO {
             JOptionPane.showMessageDialog(null, "erro ao sair "+e.getMessage());
         }
     }
-    
-    
+       
 }
