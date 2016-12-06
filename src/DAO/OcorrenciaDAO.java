@@ -34,4 +34,10 @@ public class OcorrenciaDAO {
             JOptionPane.showMessageDialog(null, "Erro ao enviar a ocorrencia no banco de dados " + e.getMessage());
         }
     }
+    
+    
+    
+    
+    
+    
 }

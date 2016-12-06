@@ -126,7 +126,7 @@ public class TelaBolsista extends javax.swing.JFrame {
     */
     private void botaoOcorrenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOcorrenciaActionPerformed
         //Ocorrencia oc = new TelaOcorrencia();
-        new TelaAutenticacao().setVisible(true);
+        new TelaListaOcorrencia().setVisible(true);
         
         //oc.setVisible(true);
     }//GEN-LAST:event_botaoOcorrenciaActionPerformed

@@ -150,7 +150,7 @@ public class TelaOcorrencia extends javax.swing.JFrame {
                                              "Confirmar mensagem", JOptionPane.YES_NO_OPTION);
        
        if(n == JOptionPane.YES_OPTION){
-           Ocorrencia msg = new Ocorrencia(desc, nomeAutor, data, setor);
+           Ocorrencia msg = new Ocorrencia(desc, nomeAutor, "", setor);
            new OcorrenciaDAO().registarOcorrencia(msg, matricula);
            
            //System.out.println("enviando para o BD");  
