@@ -44,6 +44,7 @@ public class TelaCriarAtividade extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        labelTitulo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         labelTitulo.setText("Criar atividade");
 
         label1.setText("Titulo: ");

@@ -33,6 +33,8 @@ public class TelaListaOcorrencia extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        labelOcorrencia = new javax.swing.JLabel();
+        botaoVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -41,10 +43,22 @@ public class TelaListaOcorrencia extends javax.swing.JFrame {
         );
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Criar Ocorrencia");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        labelOcorrencia.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        labelOcorrencia.setText("Ocorrencias");
+
+        botaoVoltar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botaoVoltar.setText("Voltar");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
             }
         });
 
@@ -54,20 +68,28 @@ public class TelaListaOcorrencia extends javax.swing.JFrame {
             painelOcorrenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelOcorrenciaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
+                .addGroup(painelOcorrenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelOcorrenciaLayout.createSequentialGroup()
+                        .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
+                    .addGroup(painelOcorrenciaLayout.createSequentialGroup()
+                        .addComponent(labelOcorrencia)
+                        .addGap(0, 590, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(painelOcorrenciaLayout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelOcorrenciaLayout.setVerticalGroup(
             painelOcorrenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelOcorrenciaLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelOcorrencia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(painelOcorrenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(botaoVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -96,6 +118,10 @@ public class TelaListaOcorrencia extends javax.swing.JFrame {
         dispose();
         new TelaAutenticacao().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        dispose();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,9 +159,11 @@ public class TelaListaOcorrencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoVoltar;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelOcorrencia;
     private javax.swing.JPanel painelOcorrencia;
     // End of variables declaration//GEN-END:variables
 }

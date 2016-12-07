@@ -11,7 +11,7 @@ import utilitarios.conexao;
  */
 public class OcorrenciaDAO {
     //desc, nomeAutor, data, setor
-    private final String INSERT = "INSERT INTO HISTORICOOCORRENCIA (descricaoOcorrencia, dataOcorrencia, setor, idFuncO ) VALUES (?,CURRENT_DATE, ?, (SELECT id FROM usuario WHERE matricula = ? ))";
+    private final String INSERT = "INSERT INTO HISTORICOOCORRENCIA (descricaoOcorrencia, dataOcorrencia, setor, idFuncO, autor ) VALUES (?,CURRENT_DATE, ?, (SELECT id FROM usuario WHERE matricula = ? ), ?)";
     private conexao con = new conexao();
     
     public void registarOcorrencia(Ocorrencia oc, String matricula){
@@ -23,6 +23,7 @@ public class OcorrenciaDAO {
             preparaInstrucao.setString(1, oc.getDescricao());
             preparaInstrucao.setString(2, oc.getSetor());
             preparaInstrucao.setString(3, matricula);
+            preparaInstrucao.setString(4, oc.getResponsavel());
             
             preparaInstrucao.execute();
             JOptionPane.showMessageDialog(null, "Ocorrencia cadastrada com sucesso");

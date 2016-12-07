@@ -49,7 +49,7 @@ public class MontaTabelaOcorrencia extends AbstractTableModel {
 
             while (rs.next()) { //enquanto houver registro'
                 //String descricao, String responsavel, Date data, String setor
-                   Ocorrencia oc = new Ocorrencia(rs.getString("descricaoOcorrencia"),"",
+                   Ocorrencia oc = new Ocorrencia(rs.getString("descricaoOcorrencia"),rs.getString("autor"),
                                         rs.getString("dataOcorrencia"), rs.getString("setor"));
 
                     listaOcorrencia.add(oc); //adiciona o objeto a lista

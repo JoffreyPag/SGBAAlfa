@@ -50,7 +50,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
                   <Component id="botaoSair" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -97,11 +97,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelTitulo">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Demi" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Administrador"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="botaoSair">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Demi" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sair modo admin"/>
           </Properties>
           <Events>
@@ -110,6 +116,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="botaoCad">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Demi" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cadastrar Funcionario"/>
           </Properties>
           <Events>
@@ -118,6 +127,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="botaoListaAtv">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Demi" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Listar Atividades"/>
           </Properties>
           <Events>
@@ -126,6 +138,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="botaoCriarAtv">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Demi" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Criar Atividade"/>
           </Properties>
           <Events>
@@ -134,6 +149,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="botaoListaFunc">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Franklin Gothic Demi" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Listar Funcionario"/>
           </Properties>
           <Events>

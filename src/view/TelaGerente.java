@@ -39,8 +39,10 @@ public class TelaGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        labelTitulo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         labelTitulo.setText("Administrador");
 
+        botaoSair.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         botaoSair.setText("Sair modo admin");
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +50,7 @@ public class TelaGerente extends javax.swing.JFrame {
             }
         });
 
+        botaoCad.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         botaoCad.setText("Cadastrar Funcionario");
         botaoCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +58,7 @@ public class TelaGerente extends javax.swing.JFrame {
             }
         });
 
+        botaoListaAtv.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         botaoListaAtv.setText("Listar Atividades");
         botaoListaAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +66,7 @@ public class TelaGerente extends javax.swing.JFrame {
             }
         });
 
+        botaoCriarAtv.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         botaoCriarAtv.setText("Criar Atividade");
         botaoCriarAtv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +74,7 @@ public class TelaGerente extends javax.swing.JFrame {
             }
         });
 
+        botaoListaFunc.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         botaoListaFunc.setText("Listar Funcionario");
         botaoListaFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +89,7 @@ public class TelaGerente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(174, 174, 174)
                 .addComponent(botaoSair)
-                .addGap(0, 207, Short.MAX_VALUE))
+                .addGap(0, 177, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

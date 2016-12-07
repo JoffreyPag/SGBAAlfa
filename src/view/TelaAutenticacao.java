@@ -44,6 +44,7 @@ public class TelaAutenticacao extends javax.swing.JFrame {
         setResizable(false);
 
         tabelaBolsistas.setModel(new MontaTabelaPresenca());
+        tabelaBolsistas.setRowHeight(30);
         jScrollPane1.setViewportView(tabelaBolsistas);
 
         labelSenha.setText("Senha: ");
@@ -55,6 +56,7 @@ public class TelaAutenticacao extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
         jLabel1.setText("Identifique - se");
 
         Cancelar.setText("Cancelar");
@@ -100,7 +102,7 @@ public class TelaAutenticacao extends javax.swing.JFrame {
                     .addComponent(labelSenha))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(autenticar, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(autenticar, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                     .addComponent(Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
