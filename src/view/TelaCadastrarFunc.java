@@ -7,6 +7,8 @@ package view;
 
 import DAO.UsuarioDAO;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import sgbaalfa.Bolsista;
 
 /**
@@ -19,6 +21,16 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
      * Creates new form TelaCadastrarFunc
      */
     public TelaCadastrarFunc() {
+        try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // If Nimbus is not available, you can set the GUI to another look and feel.
+        }
         initComponents();
     }
 
@@ -65,6 +77,12 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
         campoMatricula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoMatriculaActionPerformed(evt);
+            }
+        });
+
+        campoTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTelActionPerformed(evt);
             }
         });
 
@@ -187,11 +205,11 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
         String senha = "1234"; //temporario
         String telefone = campoTel.getText();
         String matricula = campoMatricula.getText();
-        int id = Integer.parseInt(campoTel.getText());
+        //int id = Integer.parseInt(campoTel.getText());
         int resp = JOptionPane.showConfirmDialog(null, "Cadastrar: "+nome+" CPF: "+cpf+
                                                 "\nE-mail: "+email+"\nTelefone: "+telefone, "Confirmar", JOptionPane.YES_NO_OPTION);
         if(resp == JOptionPane.YES_OPTION){
-            //String nome, String cpf, String email, String senha, char tipoUser, String matricula
+            //String nome, String cpf, String email, String senha, String telefone char tipoUser, String matricula
             Bolsista bol = new Bolsista(nome, cpf, email, senha , telefone,'b', matricula);
             //enviar para o banco    
             UsuarioDAO ud = new UsuarioDAO();
@@ -207,6 +225,10 @@ public class TelaCadastrarFunc extends javax.swing.JFrame {
     private void campoMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMatriculaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoMatriculaActionPerformed
+
+    private void campoTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoTelActionPerformed
 
     /**
      * @param args the command line arguments

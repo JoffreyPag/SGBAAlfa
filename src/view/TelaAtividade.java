@@ -1,7 +1,8 @@
 package view;
 
 import DAO.MontaTabelaAtividade;
-
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 /**
  *
  * @author joffr
@@ -12,6 +13,16 @@ public class TelaAtividade extends javax.swing.JFrame {
      * Creates new form Atividade
      */
     public TelaAtividade() {
+        try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // If Nimbus is not available, you can set the GUI to another look and feel.
+        }
         initComponents();
     }
 
